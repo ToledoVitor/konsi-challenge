@@ -1,7 +1,5 @@
 # konsi-challenge
 
-## GIANT TO-DO: TESTES
-
 
 Se você está lendo esse readme ou o meu projeto te interessou, ou você irá 
 avaliá-lo, então, seja bem vindo!
