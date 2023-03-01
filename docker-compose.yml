@@ -1,0 +1,10 @@
+version: '3.9'
+
+services:
+  app:
+    container_name: konsi-challenge-app
+    build:
+      context: .
+      target: builder
+    ports:
+      - 5000:5000 
