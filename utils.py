@@ -1,8 +1,8 @@
 import re
-from typing import Tuple, Union
+from typing import Union
 
 
-def valid_cpf(cpf: Union[int, str]) -> Tuple[bool, int]:
+def valid_cpf(cpf: Union[int, str]) -> bool:
     """
     Validates if it's a valid cpf.
 
@@ -13,11 +13,11 @@ def valid_cpf(cpf: Union[int, str]) -> Tuple[bool, int]:
     """
     
     if type(cpf) is int:
-        return True, cpf
+        return True
 
     try:
         cpf = re.sub(r'[^\w\s]', '', cpf)
         cpf = int(cpf)
-        return True, cpf
+        return True
     except:
-        return False, cpf
+        return False

@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 
 from crawler import CrawlerClient
 from utils import valid_cpf
@@ -10,7 +10,7 @@ app.debug = True
 
 @app.route('/benefits/<cpf>', methods=['GET'])
 def get_detailed_benefits(cpf):
-    cpf_is_valid, cpf = valid_cpf(cpf)
+    cpf_is_valid = valid_cpf(cpf)
 
     if not cpf_is_valid:
         return jsonify(error="The given cpf is not a valid cpf"), 400
@@ -24,7 +24,7 @@ def get_detailed_benefits(cpf):
 
 @app.route('/benefits/<cpf>/simple', methods=['GET'])
 def get_simple_benefits(cpf):
-    cpf_is_valid, cpf = valid_cpf(cpf)
+    cpf_is_valid = valid_cpf(cpf)
 
     if not cpf_is_valid:
         return jsonify(error="The given cpf is not a valid cpf"), 400

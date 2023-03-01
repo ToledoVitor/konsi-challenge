@@ -1,5 +1,8 @@
 # konsi-challenge
 
+## GIANT TO-DO: TESTES
+
+
 Se você está lendo esse readme ou o meu projeto te interessou, ou você irá 
 avaliá-lo, então, seja bem vindo!
 
@@ -99,6 +102,23 @@ Exemplos de chamadas no terminal que você pode fazer para tesar os endpoints:
 Ah, e sim, esse cpf que coloquei é válido e pode ser usado para consulta.
 
 
+## Rodando os testes
+
+Para esse projeto usei a estrutura de testes do [pytest](https://docs.pytest.org/en/7.2.x/).
+
+Todos os testes estão no arquivo `tests.py`. Existem alguns testes que testam a 
+função de validação do cpf, testam se o crawler define corretamente o usuário e 
+senha de acesso, e se a resposta retornada do crawler é igual a esperada.
+
+Para rodar os testes, no seu terminal rode o comando:
+```bash
+    pytest tests.py
+```
+
+Fique tranquilo pois todas as requisições estão mockadas nos testes, assim, ao 
+rodá-los nenhuma requisição real será feita para o site verdadeiro.
+
+
 ## Como foi desenvolvido o projeto
 
 Essa seção não tem um ar muito técnico, mas por se tratar de algo desenvolvido 
@@ -159,5 +179,22 @@ navegariamos pelo site usando as classes e tags dos elementos, e caso elas mudem
 a aplicação tem que mudar também. Uma mudança na classe do modal inicial, ou 
 ainda, a remoção do modal já seria capaz de quebrar toda a aplicação.
 
-Entendo o fluxo e fazendo apenas as requisições essenciais deixamos o projeto 
+Entendendo o fluxo e fazendo apenas as requisições essenciais deixamos o projeto 
 menos complexo, além de deixar mais resistente também.
+
+
+## Considerações finais
+
+Este projeto foi desenvolvido como uma maneira de avaliação de aplicação para 
+uma vaga, assim, a ideia aqui é mostrar o máximo de conhecimento no mínimo de 
+tempo. Por conta disso, usei as linguagens e ferramentas que tenho maior domínio 
+e deixei todo o fluxo o mais simple possível.
+
+A aplicação desenvolvida resolve o problema proposto, mas com certeza existem 
+muitas maneira possíveis de melhorar o que foi feito aqui. 
+
+Creio que todo o código esteja bem limpo e legível e todo fluxo esteja bem 
+auto-explicativo. Também tentei explicar bem nesse readme qual foi minha linha 
+de pensamento e processo de resolução. Contudo, se houver algum dúvida do que 
+foi feito aqui, o porque foi feito, ou como rodar a aplicação, sinta-se a 
+vontade para entrar em contato comigo. 
