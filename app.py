@@ -19,17 +19,17 @@ def get_detailed_benefits():
         return jsonify(error="The given cpf is not a valid cpf"), 400
 
     try:
-        benefits = CrawlerClient(
+        benefit = CrawlerClient(
             login_user=login_user, login_password=login_password,
         ).get_benefits(cpf=cpf)
-        return jsonify(data=benefits), 200
+        return jsonify(numero_beneficio=benefit), 200
 
     except Exception as error:
         return jsonify(error=error), 400
 
 
-@app.route('/benefits/simple', methods=['POST'])
-def get_simple_benefits():
+@app.route('/benefits/complete', methods=['POST'])
+def get_complete_benefits():
     cpf = request.form['cpf']
     login_user = request.form['login_user']
     login_password = request.form['login_password']
@@ -39,10 +39,10 @@ def get_simple_benefits():
         return jsonify(error="The given cpf is not a valid cpf"), 400
     
     try:
-        benefits = CrawlerClient(
+        data = CrawlerClient(
             login_user=login_user, login_password=login_password,
-        ).get_benefits(cpf=cpf, simple=True)
-        return jsonify(beneficios=benefits), 200
+        ).get_benefits(cpf=cpf, complete=True)
+        return jsonify(data=data), 200
 
     except Exception as error:
         return jsonify(error=error), 400

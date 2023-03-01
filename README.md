@@ -69,16 +69,17 @@ projeto e você já deve conseguir ver a página de **Not found no navegador**.
 Bom, uma vez que você já está rodando o projeto, seja pelo seu terminal seja 
 pelo docker, você muito provavelmente vai querer testá-lo.
 
-Existem dois endpoints criados que podem ser usados `/benefits/<cpf>` e 
-`/benefits/<cpf>/simple`.
+Existem dois endpoints criados que podem ser usados `/benefits/` e 
+`/benefits/complete`.
 
 O primeiro endpoint vai retornar todos os dados obtidos na requisição, enquanto 
 o segundo endpoint vai retornar apenas os benefícios em si.
 
-Como no desafio foi pedido que se construisse um crawler que retornasse os 
-beneficios do cpf, e não foi pedido os demais dados, não soube dizer se eles 
-eram ou não importantes. Por conta disso, criei os dois endpoints que cobrem as 
-duas alternativas.
+Como no desafio foi pedido que se construisse um crawler que retornasse o 
+"número do benefício " do cpf, e não foi pedido os demais dados, não soube dizer 
+se eles poderiam ser importantes ou não. Por conta disso, criei dois endpoints, 
+o principal que retorna apenas o número do benefício, e o segundo que retorna a 
+resposta completa da API.
 
 Caso esse projeto tivesse um uso real, provavelmente iria validar qual seria a 
 melhor solução com quem demandou a tarefa, mas como é apenas um teste, segui com 
@@ -89,7 +90,6 @@ Como a aplicação desenvolvida é puramente uma API, não existindo nada visual
 para conseguir testar a API. É claro que cada um tem seu jeito preferido, 
 browser, shell, postman, etc. mas eu particularmente gosto de usar o Postman 
 nesses casos. 
-
 
 Se quiser testar direto pelo seu terminal, aqui são dois exemplos que você pode 
 usar para testar os endpoints:

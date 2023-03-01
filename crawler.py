@@ -67,14 +67,14 @@ class CrawlerClient:
 
         return json.loads(response.text)
 
-    def get_benefits(self, cpf, simple=False):
+    def get_benefits(self, cpf, complete=False):
         self.request_login()
         if not self.auth_token:
             raise Exception("The website login has failed, the authorization token was not saved")
 
         response = self.request_benefits(cpf)
-        if simple:
-            return response['beneficios']
-        else:
+        if complete:
             return response
-
+        else:
+            # The number of the benefit its inside the beneficios key and its named nb
+            return response['beneficios'][0]['nb']
