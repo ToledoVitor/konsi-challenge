@@ -23,8 +23,7 @@ def get_detailed_benefits(cpf):
 
 
 @app.route('/benefits/<cpf>/simple', methods=['GET'])
-def get_simple_benefits():
-    cpf = request.args.get('cpf')
+def get_simple_benefits(cpf):
     cpf_is_valid, cpf = valid_cpf(cpf)
 
     if not cpf_is_valid:
@@ -38,4 +37,4 @@ def get_simple_benefits():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=5000)
