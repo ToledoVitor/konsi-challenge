@@ -10,9 +10,8 @@ isso, o crawler precisa ter a habilidade de fazer as requisições e de consegui
 fazer login e se autenticar também.
 
 Esse projeto é todo construído em python + [flask](https://flask.palletsprojects.com/en/2.2.x/),
-sendo o flask o método que usarei para disponibilizar a API.
-
-Ah, o crawler disponibiliza uma API com dois endpoint's, que retornaram os dados.
+sendo o flask o método que usarei para disponibilizar a API. O crawler 
+disponibiliza uma API com dois endpoint's para retornar os dados.
 
 
 ## Rodando o projeto
