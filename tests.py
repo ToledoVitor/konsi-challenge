@@ -37,20 +37,20 @@ def test_crawler_full_response(mock_login_value, mock_benefits_value):
     crawler.auth_token = "mock-token"
     response = crawler.get_benefits(cpf="")
 
-    assert type(response) is dict
-    assert "beneficios" in response
-    assert len(response["beneficios"]) > 0
+    assert type(response) is str
+    assert response == MOCK_SAMPLE_REPONSE["beneficios"][0]["nb"]
 
 
 @patch.object(CrawlerClient, "request_login", return_value="")
 @patch.object(CrawlerClient, "request_benefits", return_value=MOCK_SAMPLE_REPONSE)
-def test_crawler_simple_response(mock_login_value, mock_benefits_value):
+def test_crawler_complete_response(mock_login_value, mock_benefits_value):
     crawler = CrawlerClient(login_user="user", login_password="pass")
     crawler.auth_token = "mock-token"
-    response = crawler.get_benefits(cpf="", simple=True)
+    response = crawler.get_benefits(cpf="", complete=True)
 
-    assert type(response) is list
-    assert len(response[0]) > 0
+    assert type(response) is dict
+    assert "beneficios" in response
+    assert len(response["beneficios"]) > 0
 
 
 def test_invalid_cpf_with_str():
