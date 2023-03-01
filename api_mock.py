@@ -1,5 +1,5 @@
 # This is a sample response from real values returned by the API
-  
+
 MOCK_SAMPLE_REPONSE = {
     "beneficios": [
         {
@@ -76,7 +76,7 @@ MOCK_SAMPLE_REPONSE = {
             "util_70": 0.0,
             "vlBaseMargem": 0.0,
             "vlMargemCartao": 0.0,
-            "vlMargemEmprestimo": 0.0
+            "vlMargemEmprestimo": 0.0,
         }
     ],
     "celular1": None,
@@ -109,5 +109,5 @@ MOCK_SAMPLE_REPONSE = {
     "telefone2": None,
     "telefoneComercial": None,
     "ufDocumento": None,
-    "ufNascimento": None
+    "ufNascimento": None,
 }
