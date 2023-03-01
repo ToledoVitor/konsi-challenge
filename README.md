@@ -94,14 +94,14 @@ nesses casos.
 Se quiser testar direto pelo seu terminal, aqui são dois exemplos que você pode 
 usar para testar os endpoints:
 ```bash
-    curl --location 'http://127.0.0.1:5000/benefits/' \
+    curl --location 'http://localhost:5000/benefits/' \
     --form 'cpf="083.019.725-72"' \
     --form 'login_user="testekonsi"' \
     --form 'login_password="testekonsi"'
 ```
 
 ```bash
-    curl --location 'http://127.0.0.1:5000/benefits/simple' \
+    curl --location 'http://localhost:5000/benefits/complete' \
     --form 'cpf="083.019.725-72"' \
     --form 'login_user="testekonsi"' \
     --form 'login_password="testekonsi"'
