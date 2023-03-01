@@ -1,3 +1,4 @@
+import pytest
 from unittest.mock import patch
 
 from api_mock import MOCK_SAMPLE_REPONSE
@@ -13,10 +14,24 @@ def test_crawler_client_init():
     assert crawler.login_password == 'test_set_login_pass'
 
 
+def test_crawler_client_init_no_credentials():
+    # No credentials
+    with pytest.raises(Exception):
+        CrawlerClient()
+
+    # No password
+    with pytest.raises(Exception):
+        CrawlerClient(login_user="User")
+
+    # Empty credentials
+    with pytest.raises(Exception):
+        CrawlerClient(login_user="", login_password="")
+
+
 @patch.object(CrawlerClient, 'request_login', return_value="")
 @patch.object(CrawlerClient, 'request_benefits', return_value=MOCK_SAMPLE_REPONSE)
 def test_crawler_full_response(mock_login_value, mock_benefits_value):
-    crawler = CrawlerClient()
+    crawler = CrawlerClient(login_user="user", login_password="pass")
     crawler.auth_token = 'mock-token'
     response = crawler.get_benefits(cpf='')
 
@@ -28,7 +43,7 @@ def test_crawler_full_response(mock_login_value, mock_benefits_value):
 @patch.object(CrawlerClient, 'request_login', return_value="")
 @patch.object(CrawlerClient, 'request_benefits', return_value=MOCK_SAMPLE_REPONSE)
 def test_crawler_simple_response(mock_login_value, mock_benefits_value):
-    crawler = CrawlerClient()
+    crawler = CrawlerClient(login_user="user", login_password="pass")
     crawler.auth_token = 'mock-token'
     response = crawler.get_benefits(cpf='', simple=True)
 

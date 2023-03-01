@@ -23,8 +23,12 @@ class CrawlerClient:
     request_headers = {}
     
 
-    def __init__(self, login_user="testekonsi", login_password="testekonsi",
+    def __init__(self, login_user="", login_password="",
                  *args, **kwargs):
+        
+        if not login_user or not login_password:
+            raise Exception("Missing user or password credentials")
+        
         self.login_user = login_user
         self.login_password = login_password
 

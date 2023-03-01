@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 
 from crawler import CrawlerClient
 from utils import valid_cpf
@@ -8,30 +8,42 @@ app = Flask(__name__)
 app.debug = True
 
 
-@app.route('/benefits/<cpf>', methods=['GET'])
-def get_detailed_benefits(cpf):
-    cpf_is_valid = valid_cpf(cpf)
+@app.route('/benefits/', methods=['POST'])
+def get_detailed_benefits():
+    cpf = request.form['cpf']
+    login_user = request.form['login_user']
+    login_password = request.form['login_password']
 
+    cpf_is_valid = valid_cpf(cpf)
     if not cpf_is_valid:
         return jsonify(error="The given cpf is not a valid cpf"), 400
 
     try:
-        benefits = CrawlerClient().get_benefits(cpf=cpf)
+        benefits = CrawlerClient(
+            login_user=login_user, login_password=login_password,
+        ).get_benefits(cpf=cpf)
         return jsonify(data=benefits), 200
+
     except Exception as error:
         return jsonify(error=error), 400
 
 
-@app.route('/benefits/<cpf>/simple', methods=['GET'])
-def get_simple_benefits(cpf):
+@app.route('/benefits/simple', methods=['POST'])
+def get_simple_benefits():
+    cpf = request.form['cpf']
+    login_user = request.form['login_user']
+    login_password = request.form['login_password']
+    
     cpf_is_valid = valid_cpf(cpf)
-
     if not cpf_is_valid:
         return jsonify(error="The given cpf is not a valid cpf"), 400
     
     try:
-        benefits = CrawlerClient().get_benefits(cpf=cpf, simple=True)
+        benefits = CrawlerClient(
+            login_user=login_user, login_password=login_password,
+        ).get_benefits(cpf=cpf, simple=True)
         return jsonify(beneficios=benefits), 200
+
     except Exception as error:
         return jsonify(error=error), 400
 
