@@ -76,7 +76,8 @@ bastou definir no código que resolvemos o problema.
 ## Requests vs Selenium vs Scrapy vs ... 
 
 Uma coisa legal de se falar aqui é que, eu não usei nenhum framework de 
-webscrapping como Selenium (talvez o mais famoso) ou Scrapy.
+webscrapping como [Selenium](https://www.selenium.dev/) (talvez o mais famoso) 
+ou [Scrapy](https://scrapy.org/).
 
 Esses frameworks são realmente muito úteis e resolvem problemas bem grandes, mas 
 também são grandes e geram muita complexidade no projeto. 
