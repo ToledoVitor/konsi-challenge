@@ -1,5 +1,6 @@
-import pytest
 from unittest.mock import patch
+
+import pytest
 
 from api_mock import MOCK_SAMPLE_REPONSE
 from crawler import CrawlerClient

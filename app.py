@@ -3,7 +3,6 @@ from flask import Flask, jsonify, request
 from crawler import CrawlerClient
 from utils import valid_cpf
 
-
 app = Flask(__name__)
 app.debug = True
 
