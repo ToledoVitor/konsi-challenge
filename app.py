@@ -17,7 +17,7 @@ def get_detailed_benefits(cpf):
 
     try:
         benefits = CrawlerClient().get_benefits(cpf=cpf)
-        return jsonify(benefits), 200
+        return jsonify(data=benefits), 200
     except Exception as error:
         return jsonify(error=error), 400
 
@@ -31,7 +31,7 @@ def get_simple_benefits(cpf):
     
     try:
         benefits = CrawlerClient().get_benefits(cpf=cpf, simple=True)
-        return jsonify(benefits), 200
+        return jsonify(beneficios=benefits), 200
     except Exception as error:
         return jsonify(error=error), 400
 

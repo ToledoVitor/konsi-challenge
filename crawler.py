@@ -61,7 +61,7 @@ class CrawlerClient:
             raise Exception(f"The website benefits endpoint has failed, server \
                               responded with a {response.status_code} status code")
 
-        return response.text
+        return json.loads(response.text)
 
     def get_benefits(self, cpf, simple=False):
         self.request_login()
@@ -70,8 +70,7 @@ class CrawlerClient:
 
         response = self.request_benefits(cpf)
         if simple:
-            # Website is offline, needs to change this later
-            return response
+            return response['beneficios']
         else:
             return response
 
